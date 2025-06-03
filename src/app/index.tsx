@@ -108,6 +108,9 @@ export default function HomePage() {
       <Link href="./toggle-btn-page">
         <Text>Go to Toggle Button page</Text>
       </Link>
+      <Link href="./context-page">
+        <Text>Go to Context page</Text>
+      </Link>
     </View>
   );
 }

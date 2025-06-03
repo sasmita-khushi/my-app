@@ -47,13 +47,15 @@ export default function MyToggleButton(props: MyToggleButtonProps) {
   };
 
   return (
-    <ButtonPressable onPress={handlePress}>
+    <ButtonPressable onPress={handlePress} testID="toggleButton">
       <Container>
         <Bar
+          testID="bar"
           className="justify-center rounded-full"
           style={[barAnimeStyle, { height: BarHeight, width: BarWidth }]}
         >
           <Circle
+            testID="circle"
             className="rounded-full bg-white shadow-sm"
             style={[circleAnimStyle, { height: circleSize, width: circleSize }]}
           />

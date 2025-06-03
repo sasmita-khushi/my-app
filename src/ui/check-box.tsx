@@ -33,7 +33,7 @@ export default function CheckBox(props: propTypes) {
 
   return (
     <Container
-      className="h-10 w-10 cursor-pointer items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-slate-800"
+      className="h-10 w-10 cursor-pointer items-center justify-center rounded-full hover:bg-gray-100"
       onPress={handlePress}
       testID="checkBox"
     >
@@ -41,7 +41,7 @@ export default function CheckBox(props: propTypes) {
         testID="rippleCircle"
         className={[
           "absolute h-10 w-10 rounded-full",
-          props.isChecked ? "bg-blue-500 dark:bg-yellow-400" : "bg-gray-400",
+          props.isChecked ? "bg-blue-500" : "bg-gray-400",
         ].join(" ")}
         style={rippleCircleAnimeStyle}
       ></RippleCircle>
@@ -49,8 +49,8 @@ export default function CheckBox(props: propTypes) {
         className={[
           "h-5 w-5 rounded-sm border-2",
           props.isChecked
-            ? "border-blue-500 bg-blue-500 dark:border-yellow-400 dark:bg-yellow-400"
-            : "border-gray-500 bg-white dark:bg-slate-900",
+            ? "border-blue-500 bg-blue-500"
+            : "border-gray-500 bg-white",
         ].join(" ")}
       >
         {props.isChecked && (
