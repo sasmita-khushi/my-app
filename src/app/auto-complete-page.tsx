@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { View } from "react-native";
 import AutoComplete from "../ui/auto-complete";
+import MyAutoComplete from "../ui/auto-complete";
 export default function AutoCompletePage() {
   const data = [
     {
@@ -107,6 +108,10 @@ export default function AutoCompletePage() {
     }
   };
 
+  const handleAutoCompleteSelect = (selectedItem: any) => {
+    console.log("Selected Item: ", selectedItem);
+  };
+
   return (
     <View className="flex-1 items-center justify-center">
       {/* <AutoComplete data={data} label="Enter Your Name" /> */}
@@ -116,6 +121,7 @@ export default function AutoCompletePage() {
         propToBind="empName"
         id="empId"
         onChange={handleChange}
+        onSelect={handleAutoCompleteSelect}
       />
     </View>
   );

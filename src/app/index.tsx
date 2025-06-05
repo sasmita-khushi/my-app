@@ -111,6 +111,9 @@ export default function HomePage() {
       <Link href="./context-page">
         <Text>Go to Context page</Text>
       </Link>
+      <Link href="./button-page">
+        <Text>Go to Button Page</Text>
+      </Link>
     </View>
   );
 }
