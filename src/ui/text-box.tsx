@@ -87,7 +87,7 @@ function TextBox(props: TextBoxProps) {
       )}
       <TextBoxWrapper className="relative flex-row items-center">
         <TextInput
-          className={`font-open-sans mb-1 mt-2 flex-1 rounded border border-solid p-3 text-slate-900 placeholder:text-gray-400 focus:outline-none dark:bg-slate-950 dark:text-gray-300 dark:placeholder:text-gray-400 ${""} ${props.editable === false ? "bg-slate-100 dark:bg-slate-800" : ""} ${Platform.OS === "web" ? "text-base" : "text-xl"} ${isFocused ? "border-blue-500 dark:outline-yellow-400" : "border-gray-300 dark:border-gray-700"} `}
+          className={`font-open-sans mb-1 mt-2 flex-1 rounded border border-solid p-3 text-slate-900 placeholder:text-gray-400 focus:outline-none ${""} ${props.editable === false ? "bg-slate-100 dark:bg-slate-800" : ""} ${Platform.OS === "web" ? "text-base" : "text-xl"} ${isFocused ? "border-blue-500 dark:outline-yellow-400" : "border-gray-300 dark:border-gray-700"} `}
           placeholder="Enter Mobile Number"
           testID="textBox"
           {...rest}

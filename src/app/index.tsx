@@ -114,6 +114,7 @@ export default function HomePage() {
       <Link href="./button-page">
         <Text>Go to Button Page</Text>
       </Link>
+      <Link href="./a">Go to a page</Link>
     </View>
   );
 }
