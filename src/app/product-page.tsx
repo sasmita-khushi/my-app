@@ -1,9 +1,9 @@
-import Hello from "../ui/hello";
+import Product from "../ui/product";
 import { View } from "react-native";
-export default function A() {
+export default function ProductPage() {
   return (
     <View className="flex-1">
-      <Hello PRODUCTS={PRODUCTS} />
+      <Product PRODUCTS={PRODUCTS} />
     </View>
   );
 }
@@ -15,4 +15,7 @@ const PRODUCTS = [
   { category: "Vegetables", price: "$2", stocked: true, name: "Spinach" },
   { category: "Vegetables", price: "$4", stocked: false, name: "Pumpkin" },
   { category: "Vegetables", price: "$1", stocked: true, name: "Peas" },
+  { category: "Vegetables", price: "$3", stocked: false, name: "Carrot" },
+  { category: "Fruits", price: "$1", stocked: false, name: "orange" },
+  { category: "Fruits", price: "$1", stocked: true, name: "grapes" },
 ];

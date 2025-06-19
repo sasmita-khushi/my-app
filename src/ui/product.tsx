@@ -3,7 +3,7 @@ import TextBox from "./text-box";
 import CheckBox from "./check-box";
 import { useState } from "react";
 
-export default function Hello(props: { PRODUCTS: any[] }) {
+export default function Product(props: { PRODUCTS: any[] }) {
   const { PRODUCTS } = props;
   const [checked, setChecked] = useState(false);
   const [searchText, setSearchText] = useState("");
