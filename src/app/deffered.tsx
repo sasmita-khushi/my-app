@@ -1,6 +1,6 @@
 import { View, Text, TextInput } from "react-native";
 import { useState, useDeferredValue } from "react";
-import a from "../ui/a";
+
 export default function DefferedPage() {
   const [value, setValue] = useState("");
 
