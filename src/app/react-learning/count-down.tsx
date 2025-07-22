@@ -8,24 +8,28 @@ const formatTime = (seconds: number) => {
 };
 
 export default function StopWatch() {
-  const [number, setNumber] = useState(70);
+  const [number, setNumber] = useState(10);
   const [isRunning, setIsRunning] = useState(true);
   const timerRef = useRef<number | null>(null);
-  const [initialTime] = useState(70);
+  const [initialTime] = useState(10);
 
   useEffect(() => {
     if (isRunning && number > 0) {
       timerRef.current = setInterval(() => {
-        setNumber((prev) => prev - 1);
+        setNumber((prev) => {
+          if (prev <= 1) {
+            clearInterval(timerRef.current!);
+            setIsRunning(false);
+            return 0;
+          }
+          return prev - 1;
+        });
       }, 1000);
-      console.log(timerRef.current);
     }
 
-    // Cleanup on pause or unmount
     return () => {
       if (timerRef.current !== null) {
         clearInterval(timerRef.current);
-        timerRef.current = null;
       }
     };
   }, [isRunning]);
@@ -40,6 +44,16 @@ export default function StopWatch() {
     setIsRunning(false);
   };
 
+  const handlePause = () => {
+    setIsRunning(false);
+  };
+  const handleStart = () => {
+    if (number === 0) {
+      setNumber(initialTime); // reset to starting value
+    }
+    setIsRunning(true); // always start
+  };
+
   return (
     <View className="flex-1 items-center justify-center">
       <Text
@@ -49,17 +63,32 @@ export default function StopWatch() {
       </Text>
 
       <View className="flex-row space-x-5">
-        <PauseButton
+        {!isRunning ? (
+          <Pressable
+            onPress={handleStart}
+            className="mt-3 w-28 rounded bg-yellow-300 p-3"
+          >
+            <Text className="text-center text-black">
+              {" "}
+              {number === 0 ? "Start" : "▶️ Resume"}{" "}
+            </Text>
+          </Pressable>
+        ) : (
+          <Pressable
+            onPress={handlePause}
+            className="mt-3 w-28 rounded bg-pink-300 p-3"
+          >
+            <Text className="text-center text-black"> ⏸️ Pause </Text>
+          </Pressable>
+        )}
+        {/* <PauseButton
           className="mt-3 w-28 rounded bg-pink-300 p-3"
-          onPress={() => {
-            if (number === 0) return;
-            setIsRunning((prev) => !prev);
-          }}
+          onPress={handlePause}
         >
           <Text className="text-center text-black">
             {isRunning ? " ⏸️ Pause" : " ▶️ Resume"}
           </Text>
-        </PauseButton>
+        </PauseButton> */}
 
         <RestartButton
           className="mt-3 w-28 rounded bg-blue-400 p-3"
