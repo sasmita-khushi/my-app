@@ -11,7 +11,7 @@ export default function Menu() {
 
   return (
     <View className="flex-1">
-      <View className="h-16 w-full flex-row bg-blue-300">
+      <Header className="h-16 w-full flex-row bg-blue-300" testID="header">
         <View className="h-16 w-1/2"></View>
         <View className="h-16 w-1/2 items-end justify-center pr-4">
           <Ionicons
@@ -19,9 +19,10 @@ export default function Menu() {
             size={32}
             className="mr-10 flex cursor-pointer justify-end"
             onPress={handlePress}
+            testID="loginuser"
           />
         </View>
-      </View>
+      </Header>
       {pressOn && (
         <TouchableWithoutFeedback onPress={handlePress}>
           <View className="absolute inset-0">
@@ -37,6 +38,7 @@ function MenuList() {
   return (
     <TouchableWithoutFeedback>
       <Animated.View
+        testID="menulist"
         className="absolute right-2 mt-12 h-[550px] w-[400px] rounded-xl"
         style={{ backgroundColor: "#323336" }}
         entering={FadeIn}
@@ -108,3 +110,4 @@ const SecondBox = View;
 const ThirdBox = View;
 const FourthBox = View;
 const LineBreak = View;
+const Header = View;
